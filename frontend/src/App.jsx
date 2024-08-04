@@ -20,6 +20,10 @@ function App() {
       .then(res => res.json())
       .then(data => settodos(data))
   })
+
+  const onUpdateTodo = (updatedToDo) =>{
+    settodos(todos.map(todo => todo.id === updatedToDo.id ? updatedToDo : todo))
+  }
    
 
   return (

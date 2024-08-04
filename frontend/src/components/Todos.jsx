@@ -1,9 +1,33 @@
 import { useState } from 'react'
 
 
-const Todos = ({todos, settodos}) => {
+const Todos = ({todos, settodos, onUpdateTodo}) => {
 
-  
+    const handleToDoUpdate = (todo) => {
+        const updatestatus = todo.status == "DONE" ? "INPROGRESS" : "DONE"
+        fetch(`http://127.0.0.1:8000/api/${todo.id}/`,{
+            method : 'PUT',
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body : JSON.stringify({
+                title: todo.title,
+                status : updatestatus
+            })
+        })
+        .then(response =>{
+            return response.json()
+        })
+        .then(data => {
+            onUpdateTodo(data)
+        })
+    
+    
+    }
+
+
+
+
     return (
         <div>
             <ul className="list-group"> 
@@ -13,7 +37,7 @@ const Todos = ({todos, settodos}) => {
                         
                     }> 
                     <span> {todo.title}</span>
-                    <button className='btn btn-sm border'> {todo.status}</button>
+                    <button className='btn btn-sm border' onClick={ ()=>handleToDoUpdate(todo)}> {todo.status}</button>
                     </li>
                 ))}
                
