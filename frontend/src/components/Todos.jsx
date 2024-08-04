@@ -37,7 +37,10 @@ const Todos = ({todos, settodos, onUpdateTodo}) => {
                         
                     }> 
                     <span> {todo.title}</span>
-                    <button className='btn btn-sm border' onClick={ ()=>handleToDoUpdate(todo)}> {todo.status}</button>
+                    <button 
+                         className={`btn btn-sm border ${todo.status == "DONE" ? "btn-success" : "btn-warning"}`}
+                         onClick={ ()=>handleToDoUpdate(todo)}>
+                         {todo.status}</button>
                     </li>
                 ))}
                
