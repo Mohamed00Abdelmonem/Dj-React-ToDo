@@ -1,18 +1,9 @@
 import { useState } from 'react'
 
 
-const Todos = () => {
+const Todos = ({todos, settodos}) => {
 
-    const [todos, setTodos] = useState([
-        {title : 'todo1' , status: 'done', description:'descriptons for todo1'},
-        {title : 'todo2' , status: 'done', description:'descriptons for todo2'},
-        {title : 'todo3' , status: 'inprogress', description:'descriptons for todo3'},
-        {title : 'todo4' , status: 'done', description:'descriptons for todo4'},
-   
-
-    ])
-
-
+  
     return (
         <div>
             <ul className="list-group"> 
