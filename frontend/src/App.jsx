@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 
@@ -13,14 +13,14 @@ import CreateTodo from './components/CreateTodo';
 
 function App() {
 
-  const [todos, settodos] = useState([
-    {title : 'todo1' , status: 'done', description:'descriptons for todo1'},
-    {title : 'todo2' , status: 'done', description:'descriptons for todo2'},
-    {title : 'todo3' , status: 'inprogress', description:'descriptons for todo3'},
-    {title : 'todo4' , status: 'done', description:'descriptons for todo4'},
+  const [todos, settodos] = useState([])
 
-
-])
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/')
+      .then(res => res.json())
+      .then(data => settodos(data))
+  })
+   
 
   return (
     <div className='container'>
