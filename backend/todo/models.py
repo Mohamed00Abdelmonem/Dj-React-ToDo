@@ -11,7 +11,7 @@ STATUS_CHOICES = (
 class Todo(models.Model):
     title = models.CharField(max_length=50)
     status = models.CharField(max_length=40, choices= STATUS_CHOICES)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self) -> str:

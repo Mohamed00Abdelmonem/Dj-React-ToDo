@@ -1,0 +1,16 @@
+
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+
+#root {
+    height: 100%;
+    background: rgb(34,125,124);
+    background: linear-gradient(0deg, rgba(34,125,124,1) 0%, rgba(154,171,106,0.9921218487394958) 100%);
+}
